@@ -1,0 +1,7 @@
+<h1>Замовлення</h1>
+
+{% for order in orders %}
+  <p>Замовлення №{{ order.id }} — {{ order.created_at }}</p>
+{% empty %}
+  <p>Замовлень поки немає</p>
+{% endfor %}
