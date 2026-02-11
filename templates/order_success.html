@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Замовлення оформлено | Senya Market</title>
+</head>
+
+<body style="
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#e8f5e9,#e3f2fd);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+">
+
+<div style="
+background:white;
+padding:50px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+width:420px;
+">
+
+    <div style="font-size:60px;">🎉</div>
+
+    <h1 style="margin-bottom:10px; color:#2e7d32;">
+        Замовлення оформлено!
+    </h1>
+
+    <p style="color:#555; margin-bottom:20px;">
+        Дякуємо за покупку в <b>Senya Market</b>
+    </p>
+
+    <div style="
+    background:#f1f8e9;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+    ">
+
+        <p><b>Номер замовлення:</b> {{ order.id }}</p>
+        
+        
+        <p><b>Сума:</b> {{ order.total_price }} $</p>
+
+
+    </div>
+
+    <p style="color:#777; font-size:14px;">
+        Наш менеджер зв'яжеться з вами найближчим часом.
+    </p>
+
+    <a href="/home/"
+       style="
+       display:inline-block;
+       margin-top:25px;
+       padding:14px 25px;
+       background:#2e7d32;
+       color:white;
+       text-decoration:none;
+       border-radius:8px;
+       font-weight:bold;
+       transition:0.3s;
+       ">
+        ⬅ Повернутись на головну
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Кошик | Senya Market</title>
+</head>
+
+<body style="
+margin:0;
+font-family:Arial;
+background:linear-gradient(120deg, #e6f7f4, #eef3ff);
+min-height:100vh;
+">
+
+<div style="max-width:1000px; margin:40px auto;">
+
+
+    <a href="/home/"
+       style="display:inline-block; margin-bottom:20px; text-decoration:none; color:#1976d2; font-weight:bold;">
+        ← На головну
+    </a>
+
+    <h1>🛒 Ваш кошик</h1>
+
+    {% if products %}
+
+        {% for product in products %}
+            <div style="
+                display:flex;
+                gap:20px;
+                background:white;
+                padding:20px;
+                margin-bottom:15px;
+                border-radius:12px;
+                box-shadow:0 8px 20px rgba(0,0,0,0.1);
+                align-items:center;
+            ">
+                <img src="{{ product.image.url }}" width="180"
+                     style="border-radius:10px;">
+
+                <div style="flex:1;">
+                    <h3 style="margin:0;">{{ product.name }}</h3>
+                    <p style="font-size:18px; color:#2e7d32;">
+                        <b>{{ product.price }} $</b>
+                    </p>
+                </div>
+
+
+                <form action="{% url 'remove_from_cart' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit"
+                            style="
+                            padding:10px 16px;
+                            background:#c62828;
+                            color:white;
+                            border:none;
+                            border-radius:8px;
+                            cursor:pointer;
+                            font-weight:bold;
+                            ">
+                        ❌ Видалити
+                    </button>
+                </form>
+            </div>
+        {% endfor %}
+
+        <div style="
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+">
+
+    <div>
+        <div style="font-size:18px;">Товарів: {{ products|length }}</div>
+        <div style="font-size:22px; color:#2e7d32; font-weight:bold;">
+            💰 {{ total_price }} $
+        </div>
+    </div>
+
+</div>
+
+
+        <!-- кнопки -->
+        <div style="margin-top:30px; display:flex; gap:20px;">
+            <a href="/home/"
+               style="
+               padding:14px 22px;
+               background:#9e9e9e;
+               color:white;
+               text-decoration:none;
+               border-radius:8px;
+               font-weight:bold;
+               ">
+               ← Продовжити покупки
+            </a>
+
+            <a href="/order/"
+               style="
+               padding:14px 22px;
+               background:#2e7d32;
+               color:white;
+               text-decoration:none;
+               border-radius:8px;
+               font-weight:bold;
+               ">
+               ✅ Замовити
+            </a>
+        </div>
+
+    {% else %}
+        <div style="
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+            text-align:center;
+        ">
+            <h2>Кошик порожній 😕</h2>
+            <a href="/home/"
+               style="
+               display:inline-block;
+               margin-top:15px;
+               padding:12px 20px;
+               background:#1976d2;
+               color:white;
+               text-decoration:none;
+               border-radius:8px;
+               ">
+               Перейти до товарів
+            </a>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

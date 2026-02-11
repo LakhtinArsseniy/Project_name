@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформлення замовлення</title>
+</head>
+
+<body style="
+font-family:Arial;
+background:linear-gradient(120deg, #fff3e0, #e3f2fd);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+">
+
+<form method="post" style="
+background:white;
+padding:30px;
+width:400px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+">
+    {% csrf_token %}
+
+    <h2>📦 Оформлення замовлення</h2>
+
+    <input required placeholder="Імʼя"
+           style="width:100%; padding:12px; margin-bottom:10px;">
+
+    <input required placeholder="Телефон"
+           style="width:100%; padding:12px; margin-bottom:10px;">
+
+    <input required placeholder="Адреса доставки"
+           style="width:100%; padding:12px; margin-bottom:20px;">
+
+    <button type="submit"
+            style="
+            width:100%;
+            padding:14px;
+            background:#2e7d32;
+            color:white;
+            border:none;
+            border-radius:6px;
+            font-size:16px;
+            cursor:pointer;
+            ">
+        ✅ Підтвердити замовлення
+    </button>
+</form>
+
+</body>
+</html>

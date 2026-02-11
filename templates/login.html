@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Вхід | Senya Market</title>
+</head>
+
+<body style="
+margin:0;
+font-family:Arial;
+background:linear-gradient(120deg, #e6f7f4, #eef3ff);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+">
+
+<div style="
+width:420px;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+text-align:center;
+">
+
+    <h1 style="margin-bottom:10px;">👋 Вітаємо!</h1>
+
+    <p style="color:#555; margin-bottom:25px;">
+        Ласкаво просимо до <b>Senya Market</b><br>
+        Магазину техніки та транспорту
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Логін"
+               required
+               style="
+               width:100%;
+               padding:12px;
+               margin-bottom:10px;
+               border:1px solid #ccc;
+               border-radius:6px;
+               ">
+
+        <input type="password" name="password" placeholder="Пароль"
+               required
+               style="
+               width:100%;
+               padding:12px;
+               margin-bottom:15px;
+               border:1px solid #ccc;
+               border-radius:6px;
+               ">
+
+        <button type="submit"
+                style="
+                width:100%;
+                padding:12px;
+                background:#2e7d32;
+                color:white;
+                font-size:16px;
+                border:none;
+                border-radius:6px;
+                cursor:pointer;
+                ">
+            🔐 Увійти
+        </button>
+    </form>
+
+    <hr style="margin:25px 0;">
+
+    <p style="margin-bottom:10px;">Немає акаунту?</p>
+
+    <a href="/register/"
+       style="
+       display:block;
+       padding:12px;
+       background:#1976d2;
+       color:white;
+       text-decoration:none;
+       border-radius:6px;
+       ">
+       📝 Зареєструватися
+    </a>
+
+</div>
+
+</body>
+</html>

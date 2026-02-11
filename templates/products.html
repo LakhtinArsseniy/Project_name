@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Товари | Senya Market</title>
+</head>
+
+<body style="
+margin:0;
+font-family:Arial;
+background:linear-gradient(120deg, #e6f7f4, #eef3ff);
+padding:30px;
+">
+
+<h1 style="margin-bottom:30px;">🛒 Список товарів</h1>
+
+<div style="display:flex; flex-wrap:wrap; gap:20px;">
+
+    {% for product in products %}
+    <div style="
+        width:260px;
+        background:white;
+        border-radius:10px;
+        box-shadow:0 6px 20px rgba(0,0,0,0.15);
+        padding:15px;
+    ">
+
+        <h3 style="margin-top:0;">{{ product.name }}</h3>
+
+        <p style="font-weight:bold;">{{ product.price }} $</p>
+
+        {% if product.image %}
+            <img src="{{ product.image.url }}"
+                 style="width:100%; height:160px; object-fit:cover; border-radius:6px;">
+        {% endif %}
+
+        <a href="{% url 'detail' product.id %}"
+           style="
+           display:block;
+           margin-top:12px;
+           background:#2e7d32;
+           color:white;
+           text-align:center;
+           padding:10px;
+           border-radius:6px;
+           text-decoration:none;
+           font-weight:bold;
+           ">
+           🔍 Переглянути
+        </a>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+<div style="margin-top:40px;">
+    <a href="{% url 'home' %}"
+       style="text-decoration:none; font-weight:bold;">
+        ⬅ На головну
+    </a>
+</div>
+
+</body>
+</html>

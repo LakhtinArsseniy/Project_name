@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Реєстрація | Senya Market</title>
+</head>
+
+<body style="
+margin:0;
+font-family:Arial;
+background:linear-gradient(120deg, #fff3e0, #e3f2fd);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+">
+
+<div style="
+width:420px;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+text-align:center;
+">
+
+    <h1>📝 Реєстрація</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Логін"
+               required
+               style="width:100%; padding:12px; margin-bottom:10px;">
+
+        <input type="password" name="password1" placeholder="Пароль"
+               required
+               style="width:100%; padding:12px; margin-bottom:10px;">
+
+        <input type="password" name="password2" placeholder="Повторіть пароль"
+               required
+               style="width:100%; padding:12px; margin-bottom:15px;">
+
+        <button type="submit"
+                style="
+                width:100%;
+                padding:12px;
+                background:#1976d2;
+                color:white;
+                border:none;
+                border-radius:6px;
+                cursor:pointer;
+                ">
+            ✔ Створити акаунт
+        </button>
+    </form>
+
+    <p style="margin-top:20px;">
+        Уже є акаунт?
+        <a href="/" style="color:#1976d2;">Увійти</a>
+    </p>
+
+</div>
+
+</body>
+</html>
